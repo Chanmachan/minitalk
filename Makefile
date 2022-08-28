@@ -48,7 +48,7 @@ $(S_OBJS_DIR)/%.o: $(S_SRCS_DIR)/%.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		$(RM) -r $(C_OBJS_DIR) $(C_OBJS_DIR)
+		$(RM) -r $(C_OBJS_DIR) $(S_OBJS_DIR)
 		$(MAKE) -C $(LIBFT) clean
 
 fclean: clean
