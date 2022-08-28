@@ -7,8 +7,8 @@ S_SRCS_DIR = ./s_srcs
 C_OBJS_DIR = ./c_objs
 S_OBJS_DIR = ./s_objs
 
-C_SRCS_FILE = ./c_srcs/*.c
-S_SRCS_FILE = ./s_srcs/*.c
+C_SRCS_FILE = client.c
+S_SRCS_FILE = server.c
 
 C_SRCS = $(addprefix $(C_SRCS_DIR)/,$(C_SRCS_FILE))
 S_SRCS = $(addprefix $(S_SRCS_DIR)/,$(S_SRCS_FILE))
@@ -31,18 +31,22 @@ all: $(NAME)
 #		$(MAKE) -C $(LIBFT)
 #		$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
 
-$(NAME) : $(C_NAME) $(S_NAME)
+$(NAME): $(C_NAME) $(S_NAME)
 
-$(C_NAME) : $(C_OBJS)
+$(C_NAME): $(C_OBJS)
 		$(MAKE) -C $(LIBFT)
 		$(CC) $(CFLAGS) $(C_OBJS) $(LIBFT_ARC) -o $(C_NAME)
 
+client: $(C_NAME)
 
 $(C_OBJS_DIR)/%.o: $(C_SRCS_DIR)/%.c
 		mkdir -p $(C_OBJS_DIR)
 		$(CC) $(CFLAGS) -c $< -o $@
 
-$(S_NAME) : $(S_OBJS)
+server: $(S_NAME)
+
+$(S_NAME): $(S_OBJS)
+		$(MAKE) -C $(LIBFT)
 		$(CC) $(CFLAGS) $(S_OBJS) $(LIBFT_ARC) -o $(S_NAME)
 
 $(S_OBJS_DIR)/%.o: $(S_SRCS_DIR)/%.c
@@ -55,7 +59,7 @@ clean:
 
 fclean: clean
 		$(MAKE) -C $(LIBFT) fclean
-		$(RM) $(NAME)
+		$(RM) $(C_NAME) $(S_NAME)
 
 re: fclean all
 
