@@ -1,6 +1,9 @@
-#include <signal.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "../includes/minitalk.h"
+
+void	signal_handler(int signum)
+{
+	(void)signum;
+}
 
 int main()
 {
@@ -18,5 +21,5 @@ int main()
 		digit++;
 		i = i * 2;
 	}
-	printf("%c\n", 0x1100001);
+	signal(SIGUSR1, signal_handler);
 }
