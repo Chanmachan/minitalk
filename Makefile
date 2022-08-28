@@ -25,13 +25,7 @@ LIBFT_ARC = ./libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
 #-MP -MMD
 
-all: $(NAME)
-
-#$(NAME) : $(OBJS)
-#		$(MAKE) -C $(LIBFT)
-#		$(CC) $(CFLAGS) $(OBJS) $(LIBFT_ARC) -o $(NAME)
-
-$(NAME): $(C_NAME) $(S_NAME)
+all: $(S_NAME) $(C_NAME)
 
 $(C_NAME): $(C_OBJS)
 		$(MAKE) -C $(LIBFT)
@@ -63,4 +57,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re server client
