@@ -7,4 +7,7 @@
 # include <limits.h>
 # include "../libft/srcs/libft.h"
 
+# define USAGE 1
+# define ERROR 2
+
 #endif
