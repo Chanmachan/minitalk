@@ -31,9 +31,11 @@ int main()
 	int			s_pid;
 
 	s_pid = getpid();
-	printf("pid : %d\n", s_pid);
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
+	ft_printf("pid : %d\n", s_pid);
+	if (signal(SIGUSR1, signal_handler) == SIG_ERR)
+		exit(EXIT_FAILURE);
+	if (signal(SIGUSR2, signal_handler) == SIG_ERR)
+		exit(EXIT_FAILURE);
 	while (1)
 	{
 		pause();
