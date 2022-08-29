@@ -1,11 +1,12 @@
 #include "../includes/minitalk.h"
 
 volatile sig_atomic_t	g_receive_sig;
-int bit = 0;
-int ret = 0;
 
 void	output_char()
 {
+	static int	bit;
+	static int	ret;
+
 	if (g_receive_sig == SIGUSR1)
 	{
 		ret += (0b00000001 << bit);
