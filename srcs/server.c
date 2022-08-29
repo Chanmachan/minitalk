@@ -2,7 +2,7 @@
 
 volatile sig_atomic_t	g_receive_sig;
 
-void	output_char()
+void	output_char(void)
 {
 	static int	bit;
 	static int	ret;
@@ -14,7 +14,7 @@ void	output_char()
 		ft_putchar_fd(ret, 1);
 		bit = 0;
 		ret = 0;
-		return;
+		return ;
 	}
 	bit++;
 }
@@ -24,7 +24,7 @@ void	signal_handler(int signum)
 	g_receive_sig = signum;
 }
 
-int main()
+int	main(void)
 {
 	int			s_pid;
 

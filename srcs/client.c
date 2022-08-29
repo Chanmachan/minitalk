@@ -44,7 +44,7 @@ int	valid_pid(char *str)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		s_pid;
 	size_t	i;
