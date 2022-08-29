@@ -7,6 +7,7 @@ void	display_error(int num)
 	else if (num == ERROR)
 		ft_putendl_fd("Error", 2);
 	exit(EXIT_FAILURE);
+}
 
 int main(int argc, char **argv)
 {
