@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 		display_error(USAGE);
 	valid_pid(argv[1]);
 	s_pid = ft_atoi(argv[1]);
-	if (s_pid <= 0)
+	if (s_pid <= 1)
 		display_error(PIDERR);
 	i = 0;
 	while (i < ft_strlen(argv[2]))
