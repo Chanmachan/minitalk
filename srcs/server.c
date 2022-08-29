@@ -8,9 +8,7 @@ void	output_char()
 	static int	ret;
 
 	if (g_receive_sig == SIGUSR1)
-	{
 		ret += (0b00000001 << bit);
-	}
 	if (bit == 7)
 	{
 		ft_putchar_fd(ret, 1);
