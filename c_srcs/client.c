@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 			else
 				kill(s_pid, SIGUSR2);
 			bit++;
+			usleep(500);
 		}
 		i++;
 	}
