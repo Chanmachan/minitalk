@@ -13,7 +13,6 @@ S_SRCS_FILE = server.c
 C_SRCS = $(addprefix $(C_SRCS_DIR)/,$(C_SRCS_FILE))
 S_SRCS = $(addprefix $(S_SRCS_DIR)/,$(S_SRCS_FILE))
 
-LIBFT = ./libft
 PRINTF = ./ft_printf
 
 INCLUDES = includes/minitalk.h
@@ -46,10 +45,10 @@ $(C_OBJS_DIR)/%.o: $(C_SRCS_DIR)/%.c
 
 clean:
 		$(RM) -r $(C_OBJS_DIR) $(S_OBJS_DIR)
-		$(MAKE) -C $(LIBFT) clean
+		$(MAKE) -C $(PRINTF) clean
 
 fclean: clean
-		$(MAKE) -C $(LIBFT) fclean
+		$(MAKE) -C $(PRINTF) fclean
 		$(RM) $(C_NAME) $(S_NAME)
 
 re: fclean all
