@@ -7,15 +7,17 @@ int ret = 0;
 void	output_char()
 {
 	if (g_receive_sig == SIGUSR1)
-		ret += 0b00000001 << bit;
+	{
+		ret += (0b00000001 << bit);
+	}
 	if (bit == 7)
 	{
 		ft_putchar_fd(ret, 1);
 		bit = 0;
 		ret = 0;
+		return;
 	}
 	bit++;
-	g_receive_sig = 0;
 }
 
 void	signal_handler(int signum)
