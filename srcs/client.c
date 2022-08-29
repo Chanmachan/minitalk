@@ -9,31 +9,39 @@ void	display_error(int num)
 	exit(EXIT_FAILURE);
 }
 
+void	send_signal(int s_pid, char str)
+{
+	size_t	bit;
+	int		ret_kill;
+
+	bit = 0;
+	while (bit < CHAR_BIT)
+	{
+		if (str >> bit & 1)
+			ret_kill = kill(s_pid, SIGUSR1);
+		else
+			ret_kill = kill(s_pid, SIGUSR2);
+		if (ret_kill == -1)
+			display_error(ERROR);
+		bit++;
+		usleep(100);
+	}
+}
+
 int main(int argc, char **argv)
 {
 	int		s_pid;
 	size_t	i;
-	size_t	bit;
-	int		ret_kill;
 
 	if (argc != 3)
 		display_error(USAGE);
 	s_pid = ft_atoi(argv[1]);
+	if (s_pid <= 0)
+		display_error(ERROR);
 	i = 0;
 	while (i < ft_strlen(argv[2]))
 	{
-		bit = 0;
-		while (bit < CHAR_BIT)
-		{
-			if (argv[2][i] >> bit & 1)
-				ret_kill = kill(s_pid, SIGUSR1);
-			else
-				ret_kill = kill(s_pid, SIGUSR2);
-			if (ret_kill == -1)
-				display_error(ERROR);
-			bit++;
-			usleep(500);
-		}
+		send_signal(s_pid, argv[2][i]);
 		i++;
 	}
 	return (0);
