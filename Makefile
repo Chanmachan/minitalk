@@ -26,6 +26,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(S_NAME) $(C_NAME)
 
+bonus: all
+
 $(S_NAME): $(S_OBJS)
 		$(MAKE) -C $(PRINTF)
 		$(CC) $(CFLAGS) $(S_OBJS) $(LIBFT_ARC) $(PRINTF_ARC) -o $(S_NAME)
