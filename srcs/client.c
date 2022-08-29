@@ -38,9 +38,7 @@ int	valid_pid(char *str)
 	while (i < ft_strlen(str))
 	{
 		if (ft_isdigit(str[i]) == 0)
-		{
 			display_error(PIDERR);
-		}
 		i++;
 	}
 	return (0);
