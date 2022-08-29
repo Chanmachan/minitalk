@@ -31,13 +31,9 @@ $(C_NAME): $(C_OBJS)
 		$(MAKE) -C $(LIBFT)
 		$(CC) $(CFLAGS) $(C_OBJS) $(LIBFT_ARC) -o $(C_NAME)
 
-client: $(C_NAME)
-
 $(C_OBJS_DIR)/%.o: $(C_SRCS_DIR)/%.c
 		mkdir -p $(C_OBJS_DIR)
 		$(CC) $(CFLAGS) -c $< -o $@
-
-server: $(S_NAME)
 
 $(S_NAME): $(S_OBJS)
 		$(MAKE) -C $(LIBFT)
