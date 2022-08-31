@@ -11,7 +11,7 @@ void	display_error(int num)
 	exit(EXIT_FAILURE);
 }
 
-void	send_signal(int s_pid, char str)
+void	send_signal(int s_pid, char c)
 {
 	size_t	bit;
 	int		ret_kill;
