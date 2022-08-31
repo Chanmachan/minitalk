@@ -19,7 +19,7 @@ void	send_signal(int s_pid, char c)
 	bit = 0;
 	while (bit < CHAR_BIT)
 	{
-		if (str >> bit & 1)
+		if (c >> bit & 1)
 			ret_kill = kill(s_pid, SIGUSR1);
 		else
 			ret_kill = kill(s_pid, SIGUSR2);
